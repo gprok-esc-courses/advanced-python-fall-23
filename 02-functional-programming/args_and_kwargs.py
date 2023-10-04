@@ -30,7 +30,7 @@ def use_all(msg, msg2, *args, **kwargs):
     print(args)
     print(kwargs)
 
-use_all("A", "B", 1, 2, 3, 4, values=6, age=34, address="Street No.2")
+use_all("A", "B", 1, 2, 3, 4, git =6, age=34, address="Street No.2")
 
 
 
