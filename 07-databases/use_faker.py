@@ -1,3 +1,4 @@
+from faker import Faker
 import mysql.connector
 
 db = mysql.connector.connect(
@@ -5,11 +6,14 @@ db = mysql.connector.connect(
 )
 
 cursor = db.cursor()
+faker_gen = Faker()
 
 query = "INSERT INTO customers(name, subscr_date, email) VALUES (%s, %s, %s)"
-values = ('Mike Smith', '2023-04-11', 'ms@test.xyz')
 
-cursor.execute(query, values)
+for i in range(100):
+    values = (faker_gen.name(), faker_gen.date(), faker_gen.email())
+
+    cursor.execute(query, values)
 
 db.commit()
 
